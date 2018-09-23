@@ -1,0 +1,90 @@
+:root {
+    --scroll-animation-duration: 0.2s;
+}
+
+* {
+    font-family: var(--text-font), sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--header-font), sans-serif;
+    margin: 0;
+}
+
+body, main {
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer, article {
+    -webkit-transition: height var(--scroll-animation-duration); /* Safari */
+    transition: height var(--scroll-animation-duration);
+    overflow-y: hidden;
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    height: 78vh;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    display: none;
+    justify-content:flex-end;
+    align-items: center;
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    height: 10vh;
+    padding: 0 1vw;
+}
+
+header.scrolled {
+    height: 10vh;
+}
+
+article.scrolled {
+    height: 90vh;
+}
+
+details {
+    background: var(--accent-color);
+    color: white;
+    padding: 1vh 1vw;
+}
+
+
+details:focus, summary:focus {
+    outline: none;
+}
+
+label {
+    display: none;
+}
+details > input {
+    width: 70vw;
+    padding: 1vh 1vw;
+    border-radius: 10px;
+    margin: 1vh 0;
+    border: none;
+}
+details > button {
+    width: 25vw;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 10px;
+    padding: 1vh 1vw;
+}
+section {
+    margin: 0 1vw;
+}
