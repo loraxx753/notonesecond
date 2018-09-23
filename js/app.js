@@ -1,5 +1,3 @@
-console.log("here")
-
 (async function(config) {
   // Make sure sw are supported
   if ('serviceWorker' in navigator) {
