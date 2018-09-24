@@ -14,12 +14,21 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Noto+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="styles/theme.css"> 
-	<link rel="stylesheet" href="styles/style.css"> 
+	<link rel="stylesheet" href="styles/style.css">
 
+	<link rel="import" href="templates/organisms/address-info.html"> 
+	<link rel="import" href="templates/molecules/nos-division.html"> 
 
-	<script src="config/init.js" async defer></script>
-	<script src="js/api.js" async defer></script>
-	<script src="js/functions.js" async defer></script>
+	<script type="module" src="js/lib.js"></script>
+<!-- 	<script type="module">
+	  // or an inline script
+	  import {helperMethod} from './providesHelperMethod.js';
+	  helperMethod();
+	</script> -->
+	<script src="config/init.js"></script>
+	<script src="js/response.js"></script>
+	<script src="js/api.js"></script>
+	<script src="js/functions.js"></script>
 
 
 </head>
@@ -30,13 +39,22 @@
 			<h1>Not One Second</h1>
 		</header>
 		<article>
-			<details open>
+			<details>
 				<summary>Change Address</summary>
 				<label for="address">Address </label>
 				<input id="address" type="input" />
 				<button id="load">Add Address</button>
 			</details>
-			<section />
+			<section>
+				<address-info>
+					<span slot="line1"></span>
+					<span slot="city"></span>
+					<span slot="state"></span> 
+					<span slot="zip"></span>
+				</address-info>
+				<p>Who is my...</p>
+			</section>
+
 		</article>
 		<footer>
 			&copy; 2018 antiPhaseDomain
@@ -44,8 +62,12 @@
 	</main>
 	<aside/>
 
-
+	<script src="js/init.js"></script>
 	<script src="js/app.js" async defer></script>
+
+	<template id="division">
+		<h1>here</h1>
+	</template>
 
 </body>
 

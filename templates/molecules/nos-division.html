@@ -1,0 +1,15 @@
+<script>
+  class Division extends HTMLElement {
+    constructor() {
+      super()
+      this.attachShadow({ mode: 'open' })
+      const addressInfo = document.createElement('address-info')
+      
+      this.shadowRoot.appendChild(addressInfo)
+    }
+
+    connectedCallback() {}
+  }
+  customElements.define('nos-division', Division);
+
+</script>

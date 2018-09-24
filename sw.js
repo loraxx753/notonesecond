@@ -25,9 +25,10 @@ self.addEventListener('activate', e => {
 
 // Call Fetch Event
 self.addEventListener('fetch', e => {
-  if(e.request.url.includes('googleapis')) {
-    console.log(e.request.url)
-  }
+// // Used for examples
+//   if(e.request.url.includes('googleapis')) {
+//     console.log(e.request.url)
+//   }
   e.respondWith(
     fetch(e.request)
       .then(res => {

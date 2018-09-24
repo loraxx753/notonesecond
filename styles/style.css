@@ -9,6 +9,7 @@
 h1,h2,h3,h4,h5,h6 {
     font-family: var(--header-font), sans-serif;
     margin: 0;
+    text-transform: uppercase;
 }
 
 body, main {
@@ -60,6 +61,8 @@ details {
     background: var(--accent-color);
     color: white;
     padding: 1vh 1vw;
+    -webkit-transition: height var(--scroll-animation-duration); /* Safari */
+    transition: height var(--scroll-animation-duration);
 }
 
 
@@ -75,16 +78,36 @@ details > input {
     padding: 1vh 1vw;
     border-radius: 10px;
     margin: 1vh 0;
-    border: none;
+    border: 2px solid white;
 }
 details > button {
-    width: 25vw;
+    width: 24vw;
     background: var(--primary-color);
     color: var(--light-text-color);
     border: none;
     border-radius: 10px;
     padding: 1vh 1vw;
+    border: 2px solid white;
+    text-transform: uppercase;
 }
 section {
     margin: 0 1vw;
+    display: none;
+}
+
+summary {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 405px) {
+    details > input {
+        width: calc(100% - 3vw);
+    }
+    details > button {
+        width: 100%;
+    }
+}
+
+address-info {
+    background: black;
 }

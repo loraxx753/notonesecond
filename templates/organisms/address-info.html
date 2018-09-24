@@ -1,0 +1,31 @@
+<script>
+  class AddressInfo extends HTMLElement {
+    constructor() {
+      super()
+      this.attachShadow({ mode: 'open' })
+      const template = document.createElement('template')
+      template.innerHTML=`
+      <style>
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          border-bottom: 1px solid black;
+        }
+
+        li {
+          padding: 0;
+          margin: 0;
+        }
+      </style>
+      <h1>Officials for</h1>
+      <ul>
+        <li><slot name="line1">default</slot></li>
+        <li><slot name="city">default</slot>, <slot name="state"></slot> <slot name="zip"></span></li>
+      </ul>
+  `
+      this.shadowRoot.appendChild(template.content.cloneNode(true))
+    }
+  }
+  customElements.define('address-info', AddressInfo);
+</script>
