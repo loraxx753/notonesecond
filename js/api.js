@@ -25,6 +25,7 @@
     };
 
     window.api =  new Proxy({
+        raw: {},
         response: {}
     }, handler);
 })(config)

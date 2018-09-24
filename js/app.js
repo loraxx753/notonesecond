@@ -1,7 +1,8 @@
 // Register event listeners
-(async function(config) {
-    document.querySelector('#load').addEventListener('click', loadFromAddress)
-    document.querySelector('article').addEventListener('scroll', handleScroll)
-
-    var importDocument = document.querySelector('link[rel="import"]').import;
+(async function({ api, ...config }) {
+//   [""Donald J. Trump""]
+    console.log(api)
+    console.log(config)
+    document.querySelector('#load').addEventListener('click', load)
+//     document.querySelector('article').addEventListener('scroll', handleScroll)
 })(config)

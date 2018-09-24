@@ -1,5 +1,4 @@
-import { NeoTokyo } from "./neo-tokyo.js";
-import load from "./load.js";
+import load from "./js/load.js";
 
 (async function(load) {
   // Look for the address in localStorage
