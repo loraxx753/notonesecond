@@ -4,3 +4,5 @@ const config = {
         key: "AIzaSyCJvI8ujrk2ijbElGPb_phy1ZLDz3a1V3Q"
     }
 }
+
+export default config

@@ -18,19 +18,8 @@
 
 	<link rel="import" href="templates/organisms/address-info.html"> 
 	<link rel="import" href="templates/molecules/nos-division.html"> 
-
-	<script type="module" src="js/lib.js"></script>
-<!-- 	<script type="module">
-	  // or an inline script
-	  import {helperMethod} from './providesHelperMethod.js';
-	  helperMethod();
-	</script> -->
-	<script src="config/init.js"></script>
-	<script src="js/response.js"></script>
-	<script src="js/api.js"></script>
-	<script type="module" src="js/functions.js"></script>
-	<script type="module" src="js/load.js"></script>
-
+	<link rel="import" href="templates/molecules/nos-notification.html"> 
+	<link rel="import" href="templates/molecules/nos-office.html"> 
 
 </head>
 
@@ -47,17 +36,7 @@
 				<button id="load">Add Address</button>
 			</details>
 			<section>
-				<address-info>
-					<span slot="line1"></span>
-					<span slot="city"></span>
-					<span slot="state"></span> 
-					<span slot="zip"></span>
-				</address-info>
-				<p>Who is my...</p>
-				<nos-official>
-
-
-				</nos-official>
+				
 			</section>
 
 		</article>
@@ -67,14 +46,7 @@
 	</main>
 	<aside/>
 
-	<script type="module" src="js/init.js"></script>
 	<script type="module" src="main.js"></script>
-	<script src="js/app.js" async defer></script>
-
-	<template id="division">
-		<h1>here</h1>
-	</template>
-
 </body>
 
 </html>

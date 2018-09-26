@@ -1,16 +1,17 @@
-
-const handleResponse = async ({address, divisions, offices, officials}) => {
-  document.querySelector('[slot=line1]').innerHTML = address.line1
-  document.querySelector('[slot=city]').innerHTML = address.city
-  document.querySelector('[slot=state]').innerHTML = address.state
-  document.querySelector('[slot=zip]').innerHTML = address.zip
-  
-
-  const template = document.querySelector('template#division').content.cloneNode(true)
-//   document.querySelector('section').appendChild(template)
+import {
+  parseArray,
+  parseObject
+} from './parse.js'
 
 
-  document.querySelector('section').style = "display: block;"
+const handleResponse = async (response) => {
+  console.log(response)
+//   document.querySelector('[slot=line1]').innerHTML = address.line1
+//   document.querySelector('[slot=city]').innerHTML = address.city
+//   document.querySelector('[slot=state]').innerHTML = address.state
+//   document.querySelector('[slot=zip]').innerHTML = address.zip
+
+//   document.querySelector('section').style = "display: block;"
 
 }
 
@@ -26,4 +27,7 @@ async function handleScroll(e) {
   }
 }
 
-export { handleResponse }
+export { 
+  handleResponse,
+  handleScroll
+}

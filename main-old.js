@@ -1,70 +1,23 @@
-        /**
-         * Build and execute request to look up voter info for provided address.
-         * @param {string} address Address for which to fetch voter info.
-         * @param {function(Object)} callback Function which takes the
-         *     response object as a parameter.
-         */
-        function init(address, callback) {
-            /**
-              * Election ID for which to fetch voter info.
-              * @type {number}
-              */
-            var electionId = 2000;
+import load from "./js/load.js";
 
-            /**
-             * Request object for given parameters.
-             * @type {gapi.client.HttpRequest}
-             */
-            var req = gapi.client.request({
-                'path': '/civicinfo/v2/representatives',
-                'params': { 'electionId': electionId, 'address': address }
-            });
-            req.execute(callback);
-        }
+(async function(load) {
+  // Look for the address in localStorage
+  if(window.localStorage.getItem('address')) {
+    document.querySelector('#address').value = window.localStorage.getItem('address');
+    document.querySelector('details > button').innerHTML = "Change Address"
+    document.querySelector('details').open = false;
+    await load(window.localStorage.getItem('address'))
+  } else {
+    document.querySelector('details').open = true;
+  }
+})(load)
 
-        /**
-         * Render results in the DOM.
-         * @param {Object} response Response object returned by the API.
-         * @param {Object} rawResponse Raw response from the API.
-         */
-        function renderResults(response, rawResponse) {
-            var el = document.getElementById('results');
-            if (!response || response.error) {
-                el.appendChild(document.createTextNode(
-                    'Error while trying to fetch polling place'));
-                return;
-            }
-            // Full Response
-            // el.innerHTML = "<pre><code>" + JSON.stringify(response, null, 2) + "</code></pre>"
-            el.innerHTML = "<pre><code>" + JSON.stringify(Object.keys(response.divisions), null, 2) + "</code></pre>"
-            console.log('response', response)
-            console.log('rawResponse', rawResponse)
-            // var normalizedAddress = response.normalizedInput.line1 + ' ' +
-            //     response.normalizedInput.city + ', ' +
-            //     response.normalizedInput.state + ' ' +
-            //     response.normalizedInput.zip;
-            // if (response.pollingLocations.length > 0) {
-            //     var pollingLocation = response.pollingLocations[0].address;
-            //     var pollingAddress = pollingLocation.locationName + ', ' +
-            //         pollingLocation.line1 + ' ' +
-            //         pollingLocation.city + ', ' +
-            //         pollingLocation.state + ' ' +
-            //         pollingLocation.zip;
-            //     var normEl = document.createElement('strong');
-            //     normEl.appendChild(document.createTextNode(
-            //         'Polling place for ' + normalizedAddress + ': '));
-            //     el.appendChild(normEl);
-            //     el.appendChild(document.createTextNode(pollingAddress));
-            // } else {
-            //     el.appendChild(document.createTextNode(
-            //         'Could not find polling place for ' + normalizedAddress));
-            // }
-        }
-
-        /**
-         * Initialize the API client and make a request.
-         */
-        function load() {
-            gapi.client.setApiKey('AIzaSyCJvI8ujrk2ijbElGPb_phy1ZLDz3a1V3Q');
-            init('600 Kingswood Ave. Melbourne Fl', renderResults);
-        }
+// Register the Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('../sw.js')
+      .then(reg => console.log('Service Worker is now registered'))
+      .catch(err => console.log(`Service Worker: Error: ${err}`))
+  })    
+}  
