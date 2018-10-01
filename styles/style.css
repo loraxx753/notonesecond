@@ -25,7 +25,7 @@ header, main, footer, article {
 
 header {
     background: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--light-text-color);
     height: 20vh;
     display: flex;
     justify-content: center;
@@ -50,7 +50,8 @@ footer {
 }
 
 header.scrolled {
-    height: 10vh;
+    height: 6vh;
+    border-bottom: 1px solid rgba(255,255,255,0.5)
 }
 
 article.scrolled {
@@ -91,7 +92,7 @@ details > button {
     text-transform: uppercase;
 }
 section {
-    margin: 0 1vw;
+/*     margin: 0 1vw; */
 /*     display: none; */
 }
 
@@ -108,3 +109,134 @@ summary {
     }
 }
 
+
+
+ul#office-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+ul#office-list > li {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    /* border-bottom: 1px solid white; */
+    color: white;
+}
+
+
+#office-list-heading {
+   display: flex;
+   justify-content: center;
+   margin: 2vh 0;
+}
+
+ul#office-list > li > ul {
+    background: white;
+    color: var(--text-color);
+    display: flex;
+    margin: 0;
+    padding: 0;
+} 
+
+ul#office-list > li > ul > li {
+    background: white;
+    color: var(--text-color);
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    width: 100vw;
+}
+
+.channels {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.party {
+    min-width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    font-weight: 100;
+}
+
+.party.Republican {
+    background: red;
+    flex-grow: 1;
+}
+
+.office ul:not(:first-child) .party.Republican {
+    border-top: 1px solid crimson; /* #DC143C */
+}
+
+.office ul:not(:first-child) .party.party.Democratic {
+    border-top: 1px solid rgba(0,0,0,0.3);
+}
+
+
+.party.Democratic {
+    background: blue;
+}
+
+.undefined {
+    background: white;
+}
+.party:not(.Republican):not(.Democratic):not(.undefined) {
+    background: green;
+}
+
+.name {
+    width: 100%;
+    text-align: center;
+}
+
+.channel {
+    padding: 0 1vw;
+}
+
+.channel, .phone {
+    text-indent: -10000px;
+    width: 30px;
+    background-repeat: no-repeat;
+    height: 100%;
+    /* width: 100%; */
+}
+
+
+.phone {
+    background-attachment: fixed;
+    background: url(../imgs/phone.svg) no-repeat center 100%;
+    background-position: left;
+    flex-shrink: 2;
+}
+
+.YouTube {
+    background: url(../imgs/YouTube.svg) no-repeat center;
+}
+
+
+.Facebook {
+    background: url(../imgs/Facebook.svg) no-repeat center;
+}
+
+.Twitter {
+    background: url(../imgs/Twitter.svg) no-repeat center;
+}
+
+.GooglePlus {
+    background: url(../imgs/GooglePlus.svg) no-repeat center;
+}
+
+
+.office-name {
+    padding: 1.5vh 1vh;
+    margin: 0;
+}

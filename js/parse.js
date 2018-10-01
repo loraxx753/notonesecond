@@ -11,6 +11,20 @@ export const parseArray = async (array, propForArray) => {
   return response
 }
 
+export const parseObject = async (array, propForArray) => {
+  const response = {}
+  for(let key in array) {
+    const name = array[key][propForArray]
+    response[name] = ({
+      key,
+      ...array[key]
+    })
+  }
+
+  return response
+}
+
+
 export const parseOffices = (offices, officials, divisions) => {
     const response = offices
     for(let officeName in offices) {
@@ -30,7 +44,7 @@ export const parseOffices = (offices, officials, divisions) => {
 }
 
 
-export const parseDivisions = (divisions, offices ) => {
+export const parseDivisions = (divisions, offices) => {
     const response = divisions
     for(let divisionName in divisions) {
       const division = divisions[divisionName]
@@ -41,18 +55,4 @@ export const parseDivisions = (divisions, offices ) => {
       }
     }
     return response
-}
-
-
-export const parseObject = async (array, propForArray) => {
-  const response = {}
-  for(let key in array) {
-    const name = array[key][propForArray]
-    response[name] = ({
-      key,
-      ...array[key]
-    })
-  }
-
-  return response
 }
